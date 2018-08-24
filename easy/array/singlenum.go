@@ -16,6 +16,14 @@
 */
 package array
 
+// func singleNumber(nums []int) int {
+//     var x int
+//     for _, v := range nums{
+//         x ^= v
+//     }
+//     return x
+// }
+
 func singleNumber(nums []int) int {
 	m := make(map[int]int)
 
