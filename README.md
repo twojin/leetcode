@@ -1,2 +1,2 @@
 # leetcode
-用go刷leetcode
+go-leetcode
