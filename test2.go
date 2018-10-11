@@ -5,29 +5,10 @@ import (
 )
 
 func main() {
-	head := HeadCreate(2)
-	isPalindrome(head.Next)
-}
-
-func isPalindrome(head *ListNode) bool {
-	if head == nil || head.Next == nil {
-		return true
-	}
-
-	fast, slow := head, head
-	for fast.Next != nil && fast.Next.Next != nil {
-		fast = fast.Next.Next
-		slow = slow.Next
-	}
-
-	lastHead := slow.Next
-	slow.Next = nil
-
-	for lastHead.Next != nil {
-
-	}
-
-	return true
+	head := HeadCreate(6)
+	show(head.Next)
+	bl := hasCycle(head.Next)
+	fmt.Println(bl)
 }
 
 type ListNode struct {
@@ -37,12 +18,18 @@ type ListNode struct {
 
 func HeadCreate(n int) *ListNode {
 	p := new(ListNode)
-	for n > 0 {
+	i := 1
+	for ; i <= n/2; i++ {
 		q := new(ListNode)
-		q.Val = n
+		q.Val = i
 		q.Next = p.Next
 		p.Next = q
-		n--
+	}
+	for ; i > 0; i-- {
+		q := new(ListNode)
+		q.Val = i
+		q.Next = p.Next
+		p.Next = q
 	}
 	return p
 }

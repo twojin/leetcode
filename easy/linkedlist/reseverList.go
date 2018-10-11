@@ -1,4 +1,4 @@
-package node
+package linkedlist
 
 /*
 反转链表
