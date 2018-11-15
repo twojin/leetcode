@@ -4,10 +4,11 @@ func reverseInt(x int) int {
 	result := 0
 
 	for x != 0 {
-		result = result*10 + x%10
-		if result < MinInt || result > MinInt {
+		if !isInt32(x, x%10) {
 			return 0
 		}
+
+		result = result*10 + x%10
 		x /= 10
 	}
 
