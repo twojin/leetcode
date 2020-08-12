@@ -23,6 +23,7 @@ func levelOrder(root *TreeNode) [][]int {
 			if node.Right != nil {
 				queue = append(queue, node.Right)
 			}
+			count--
 		}
 		output = append(output, level)
 	}
