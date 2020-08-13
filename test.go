@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-	s := "abc"
-	fmt.Println(s[0] - 'a')
+
 }
 
 func climbStairs(n int) int {
