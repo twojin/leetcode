@@ -43,6 +43,22 @@ func reverseList(head *ListNode) *ListNode {
 	return head
 }
 
+func reverseList2(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	node := head
+	var prev *ListNode
+	for node != nil {
+		next := node.Next
+		node.Next = prev
+		prev = node
+		node = next
+	}
+	return prev
+}
+
 /** 递归 C:
  * Definition for singly-linked list.
  * struct ListNode {
