@@ -47,3 +47,35 @@ func isPalindrome(head *ListNode) bool {
 
 	return true
 }
+
+func isPalindrome2(head *ListNode) bool {
+	if head == nil {
+		return true
+	}
+
+	// 找到mid节点
+	slow, fast := head, head
+	for fast.Next != nil && fast.Next.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+
+	// 翻转后半部分链表
+	slow = slow.Next
+	var dummy *ListNode
+	for slow != nil {
+		next := slow.Next
+		slow.Next = dummy
+		dummy = slow
+		slow = next
+	}
+
+	for dummy != nil {
+		if dummy.Val != head.Val {
+			return false
+		}
+		dummy, head = dummy.Next, head.Next
+	}
+
+	return true
+}
